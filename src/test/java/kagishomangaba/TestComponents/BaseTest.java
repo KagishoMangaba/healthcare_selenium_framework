@@ -43,9 +43,5 @@ public class BaseTest {
         DriverFactory.quitDriver();
     }
 
-    protected LandingPage launchApplication() {
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.goTo();
-        return landingPage;
-    }
+
 }
