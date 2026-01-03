@@ -1,6 +1,7 @@
 package org.kagisho.pages;
 
 import org.kagisho.base.AbstractComponents;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,10 +29,19 @@ public class LoginPage extends AbstractComponents {
     @FindBy(id = "btn-login")
     WebElement loginBtn;
 
+    @FindBy(xpath = "//p[@class='lead text-danger']")
+    WebElement loginErrorMessage;
+
 
     public void enterCredentials(String username , String password) {
         usernameEle.sendKeys(username);
         passwordEle.sendKeys(password);
+
+    }
+
+    public String getErrorMessage() {
+        waitForElementToAppear(By.xpath("//p[@class='lead text-danger']"));
+        return loginErrorMessage.getText();
 
     }
 
