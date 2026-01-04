@@ -39,11 +39,11 @@ public class BaseTest {
 
         String browser = prop.getProperty("browser", "chrome");
 
-
-
         DriverFactory.initDriver(browser);
         driver = DriverFactory.getDriver();
     }
+
+
 
     public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException {
         String jsonContent = FileUtils.readFileToString(
@@ -56,6 +56,8 @@ public class BaseTest {
                 jsonContent,
                 new TypeReference<List<HashMap<String, String>>>() {}
         );
+
+
     }
 
 
