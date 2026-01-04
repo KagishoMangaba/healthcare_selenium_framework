@@ -45,8 +45,9 @@ public class LoginPage extends AbstractComponents {
 
     }
 
-    public void clickLoginBtn() {
+    public AppointmentPage clickLoginBtn() {
         loginBtn.click();
+        return new AppointmentPage(driver);
 
     }
 

@@ -17,6 +17,7 @@ public class Login extends TestContent {
             LandingPage landingpage = launchApplication();
             LoginPage loginPage = landingpage.goToLoginPage();
             loginPage.enterCredentials("John Doe" , "ThisIsNotAPassword");
+            loginPage.clickLoginBtn();
 
         }
 
