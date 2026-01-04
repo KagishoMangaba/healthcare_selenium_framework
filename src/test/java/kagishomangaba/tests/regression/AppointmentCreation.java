@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import static org.kagisho.utilities.JsonDataReader.getJsonDataToMap;
+
 public class AppointmentCreation extends TestContent {
 
     private LandingPage landingPage;
