@@ -1,4 +1,4 @@
-package kagishomangaba.tests;
+package kagishomangaba.tests.regression;
 
 import kagishomangaba.TestComponents.TestContent;
 import org.kagisho.pages.AppointmentPage;
