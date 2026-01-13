@@ -1,4 +1,4 @@
-package kagishomangaba.tests;
+package kagishomangaba.tests.regression;
 
 import kagishomangaba.TestComponents.BaseTest;
 import kagishomangaba.TestComponents.TestContent;
