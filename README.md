@@ -18,14 +18,12 @@ The site simulates a basic health appointment booking system where a user can:
 Here are example flows automation frameworks often implement:
 
 📌 1. Login Flow
-
 - Open homepage.
 - Click Make Appointment.
 - Enter demo credentials (e.g., “John Doe” / sample password).
 - Verify user logs in successfully.
 
 📌 2. Appointment Booking
-
 - After login, fill in:
 - Facility (e.g., Hongkong CURA Healthcare Center)
 - Hospital readmission option
@@ -48,6 +46,7 @@ Here are example flows automation frameworks often implement:
 - Version Control: Git, GitHub
 
   Framework Features ✨:
+  
 
 - Detailed Logging & Reporting: Uses Log4j and ExtentReports for clear, actionable test reports.
 - Externalized Test Data (JSON/Config): Eliminates hard-coded values for flexible, maintainable tests.
