@@ -1,9 +1,12 @@
 package kagishomangaba.tests.regression;
 
+import kagishomangaba.TestComponents.Retry;
 import kagishomangaba.TestComponents.TestContent;
 import org.kagisho.pages.AppointmentPage;
+import org.kagisho.pages.ConfirmationPage;
 import org.kagisho.pages.LandingPage;
 import org.kagisho.pages.LoginPage;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -18,32 +21,60 @@ public class AppointmentCreation extends TestContent {
     private LandingPage landingPage;
     private AppointmentPage appointmentPage;
 
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "getData" , retryAnalyzer = Retry.class)
     public void createAppointment(HashMap<String , String> input) {
 
+        String facility = "Hongkong CURA Healthcare Center";
+        String program = "Medicare";
+        String visitDate = "15/01/2026";
+        String comment = "Regular checkup";
+
         LandingPage landingPage = launchApplication();
-
         LoginPage loginPage = landingPage.goToLoginPage();
-
         loginPage.enterCredentials(input.get("username") , input.get("password"));
 
         appointmentPage = loginPage.clickLoginBtn();
-        appointmentPage.selectFacility("Tokyo CURA Healthcare Center");
 
-        appointmentPage.applyForHospitalReadmission();
-        appointmentPage.chooseHealthcareProgram("medicare");
+        ConfirmationPage confirmationPage = appointmentPage.completeAppointmentPage(
+                "Hongkong CURA Healthcare Center",
+                "Medicare",
+                "15/01/2026",
+                "Regular checkup"
+        );
+
+
+
+        Assert.assertTrue(confirmationPage.isAppointmentConfirmationDisplayed(),
+                "Appointment confirmation header is not displayed");
+
+
+        Assert.assertEquals(confirmationPage.getAppointmentConfirmationText(),
+                "Appointment Confirmation",
+                "Confirmation header text mismatch");
+
+        Assert.assertEquals(confirmationPage.getFacility(), facility,
+                "Facility name mismatch");
+
+        Assert.assertTrue(confirmationPage.getProgram().contains(program),
+                "Healthcare program mismatch");
+
+        Assert.assertEquals(confirmationPage.getVisitDate(), visitDate,
+                "Visit date mismatch");
+
+        Assert.assertTrue(confirmationPage.verifyCompleteAppointment(
+                        facility, visitDate, program, comment),
+                "Appointment details verification failed");
     }
 
-    @Test(dependsOnMethods = {"createAppointment"})
 
 
-    @DataProvider
-    public Object[][] getData() throws IOException {
 
-        List<HashMap<String,String>> data = getJsonDataToMap(System.getProperty("user.dir") + "//src//main//java//org//kagisho//data//patientData.json");
-        return new Object [][] { {data.get(0)}  , {data.get(1)} };
 
-    }
+
+
+
+
+
 
 
 

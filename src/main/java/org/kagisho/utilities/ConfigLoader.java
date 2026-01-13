@@ -18,6 +18,8 @@ public class ConfigLoader {
         return properties;
     }
 
+
+
     private static void loadProperties() {
         try {
             String path = Paths.get(

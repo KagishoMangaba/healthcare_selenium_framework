@@ -10,6 +10,7 @@ import org.kagisho.utilities.ConfigLoader;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,6 +20,8 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
+
+import static org.kagisho.utilities.JsonDataReader.getJsonDataToMap;
 
 public class BaseTest {
 
@@ -33,6 +36,7 @@ public class BaseTest {
 
 
 
+
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         try {
@@ -40,5 +44,16 @@ public class BaseTest {
         } catch (Exception ignored) {}
 
     }
+
+    @DataProvider
+    public Object[][] getData() throws IOException {
+
+        List<HashMap<String,String>> data = getJsonDataToMap(System.getProperty("user.dir") + "//src//main//java//org//kagisho//data//patientData.json");
+        return new Object [][] { {data.get(0)}  , {data.get(1)} };
+
+    }
+
+
+
 
 }
