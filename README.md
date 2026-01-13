@@ -44,18 +44,4 @@ Here are example flows automation frameworks often implement:
 - CI/CD: Jenkins
 - Browser & Driver Management: WebDriverManager, Selenium Grid (Docker)
 - Version Control: Git, GitHub
-
-  Framework Features ✨:
   
-
-- Detailed Logging & Reporting: Uses Log4j and ExtentReports for clear, actionable test reports.
-- Externalized Test Data (JSON/Config): Eliminates hard-coded values for flexible, maintainable tests.
-- Retry Mechanism: Automatically retries failed tests to handle intermittent issues.
-- Cross-Browser & Parallel Execution: Supports multiple browsers and Selenium Grid for faster test runs.
-- Page Object Model (POM): Promotes reusable and maintainable code structure.
-- End-to-End Automation: Covers UI flows within a single framework.
-- CI/CD Ready: Easily integrates with Jenkins pipelines for automated execution.
-- Dynamic Waits & Error Handling: Handles timing issues gracefully and reduces flaky tests.
-- Full regression Suite for Max test coverage
-- Screenshot on test failure
-- Implicit and explicit wait
