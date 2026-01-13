@@ -1,26 +1,27 @@
 package kagishomangaba.tests;
 
+import io.cucumber.java.hu.Ha;
 import kagishomangaba.TestComponents.TestContent;
 import org.kagisho.pages.LandingPage;
 import org.kagisho.pages.LoginPage;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
+
 public class Logout extends TestContent {
 
     private LandingPage landingPage;
 
-    @Test
-     public void userLogOut()   {
+    @Test(dataProvider = "getData")
+     public void userLogOut(HashMap<String , String> data)   {
 
         LandingPage landingpage = launchApplication();
         LoginPage loginPage = landingpage.goToLoginPage();
-        loginPage.enterCredentials("John Doe" , "ThisIsNotAPassword");
+        loginPage.enterCredentials(data.get("username"), data.get("password"));
         loginPage.clickLoginBtn();
-
         landingpage.logOut();
 
     }
-
 
 
 }

@@ -19,6 +19,9 @@ public class LandingPage extends AbstractComponents {
     @FindBy(xpath = "//a[normalize-space()='Home']")
     WebElement homebtn;
 
+    @FindBy(xpath = "//a[normalize-space()='History']")
+    WebElement historyButton;
+
     @FindBy(xpath = "//a[normalize-space()='Login']")
     WebElement navigateToLogin;
 
@@ -37,6 +40,8 @@ public class LandingPage extends AbstractComponents {
         navigateToLogin.click();
         return new LoginPage(driver);
     }
+
+
 
     public void logOut() {
         openMenu.click();

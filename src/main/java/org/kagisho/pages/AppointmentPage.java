@@ -42,6 +42,7 @@ public class AppointmentPage extends AbstractComponents {
     @FindBy(id = "txt_comment")
     private WebElement commentField;
 
+
     public void selectFacility(String facilityName) {
         waitForElementToBeClickable(facilityDropdown);
         Select select = new Select(facilityDropdown);
@@ -89,6 +90,7 @@ public class AppointmentPage extends AbstractComponents {
         bookAppointmentButton.click();
         return new ConfirmationPage(driver);
     }
+
 
     public ConfirmationPage completeAppointmentPage(String facilityName, String program, String date, String comment) {
         selectFacility(facilityName);

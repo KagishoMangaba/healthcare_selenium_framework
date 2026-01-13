@@ -17,17 +17,17 @@ public final class DriverFactory {
     public static void createLocalDriver(String browser) {
         WebDriver driver;
 
-        switch (browser.toLowerCase()) {
-            case "edge":
-                WebDriverManager.edgedriver().setup();
-                driver = new EdgeDriver();
-                break;
+        if (browser == null) {
+            browser = "chrome";
+        }
 
-            case "chrome":
-            default:
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                break;
+        if (browser.equalsIgnoreCase("edge")) {
+            WebDriverManager.edgedriver().setup();
+            driver = new EdgeDriver();
+        }
+        else {
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
         }
 
         driverThreadLocal.set(driver);
