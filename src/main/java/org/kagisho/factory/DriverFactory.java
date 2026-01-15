@@ -4,7 +4,11 @@ package org.kagisho.factory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.time.Duration;
 
@@ -14,23 +18,30 @@ public final class DriverFactory {
 
     private DriverFactory() {}
 
-    public static void createLocalDriver(String browser) {
+    public static void createLocalDriver(String browser, boolean headless) {
         WebDriver driver;
 
-        if (browser == null) {
-            browser = "chrome";
-        }
-        if (browser.equalsIgnoreCase("edge")) {
+        if ("edge".equalsIgnoreCase(browser)) {
             WebDriverManager.edgedriver().setup();
-            driver = new EdgeDriver();
-        }
-        else {
-            throw new IllegalArgumentException("Unsupported browser: " + browser);
-        }
+            EdgeOptions options = new EdgeOptions();
+            if (headless) options.addArguments("--headless=new");
+            driver = new EdgeDriver(options);
 
+
+        } else if ("chrome".equalsIgnoreCase(browser)) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            if (headless) options.addArguments("--headless=new");
+            options.addArguments("--disable-gpu", "--window-size=1920,1080");
+            driver = new ChromeDriver(options);
+
+
+
+        } else {
+            throw new RuntimeException("Unsupported browser: " + browser);
+        }
 
         driverThreadLocal.set(driver);
-
     }
 
 

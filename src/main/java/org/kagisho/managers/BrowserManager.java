@@ -10,18 +10,21 @@ import java.util.Properties;
 public class BrowserManager {
 
     public static void launchBrowser() {
-
         Properties prop = ConfigLoader.getProperties();
 
         String browser = prop.getProperty("browser", "chrome");
         boolean headless = Boolean.parseBoolean(prop.getProperty("headless", "false"));
 
-        DriverFactory.createLocalDriver(browser);
+
+        DriverFactory.createLocalDriver(browser , headless);
 
         WebDriver driver = DriverFactory.getDriver();
 
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+
+        if(!headless) {
+            driver.manage().window().maximize();
+        }
     }
 }

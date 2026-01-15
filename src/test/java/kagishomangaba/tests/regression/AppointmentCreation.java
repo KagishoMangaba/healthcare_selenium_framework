@@ -22,7 +22,7 @@ public class AppointmentCreation extends TestContent {
     private AppointmentPage appointmentPage;
 
     @Test(dataProvider = "getData" , retryAnalyzer = Retry.class)
-    public void createAppointment(HashMap<String , String> input) {
+    public void createAppointment(HashMap<String , String> data) {
 
         String facility = "Hongkong CURA Healthcare Center";
         String program = "Medicare";
@@ -31,7 +31,7 @@ public class AppointmentCreation extends TestContent {
 
         LandingPage landingPage = launchApplication();
         LoginPage loginPage = landingPage.goToLoginPage();
-        loginPage.enterCredentials(input.get("username") , input.get("password"));
+        loginPage.enterCredentials(data.get("username") , data.get("password"));
 
         appointmentPage = loginPage.clickLoginBtn();
 
@@ -65,17 +65,17 @@ public class AppointmentCreation extends TestContent {
                 "Appointment details verification failed");
     }
 
-    @Test(dataProvider = "getData" , dependsOnMethods = {"createAppointment"})
-    public void AppointmentHistory(HashMap<String , String> input) {
-
-        LandingPage landingPage = launchApplication();
-        LoginPage loginPage = landingPage.goToLoginPage();
-        loginPage.enterCredentials(input.get("username") , input.get("password"));
-        appointmentPage = loginPage.clickLoginBtn();
-
-        //will be adding View order history logic soon
-        //unfortunately order history is not tracked after logging out
-
-    }
+//    @Test(dataProvider = "getData" , dependsOnMethods = {"createAppointment"})
+//    public void AppointmentHistory(HashMap<String , String> input) {
+//
+//        LandingPage landingPage = launchApplication();
+//        LoginPage loginPage = landingPage.goToLoginPage();
+//        loginPage.enterCredentials(input.get("username") , input.get("password"));
+//        appointmentPage = loginPage.clickLoginBtn();
+//
+//        //will be adding View order history logic soon
+//        //unfortunately order history is not tracked after logging out
+//
+//    }
 
 }

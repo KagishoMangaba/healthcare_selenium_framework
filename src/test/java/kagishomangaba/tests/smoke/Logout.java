@@ -1,4 +1,4 @@
-package kagishomangaba.tests.regression;
+package kagishomangaba.tests.smoke;
 
 import io.cucumber.java.hu.Ha;
 import kagishomangaba.TestComponents.TestContent;
