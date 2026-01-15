@@ -44,4 +44,7 @@ Here are example flows automation frameworks often implement:
 - CI/CD: Jenkins
 - Browser & Driver Management: WebDriverManager, Selenium Grid (Docker)
 - Version Control: Git, GitHub
-  
+
+
+  <img width="1902" height="906" alt="image" src="https://github.com/user-attachments/assets/352e4411-8e0b-43ba-9a1f-7fa46a974a04" />
+
