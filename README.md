@@ -36,18 +36,17 @@ it is structured so it can plug into any real production system with minimal cha
 
 🔧 Tech Stack:
 
-✔ Automation & Testing: Selenium WebDriver, TestNG, Cucumber
-✔ Programming Language: Java
-✔ Build & Dependency Management: Maven
-✔ Framework Design: Page Object Model (POM), End to End Automation Framework
-✔ Data-Driven Testing: JSON
-✔ Logging & Reporting: Log4j, ExtentReports
-✔ CI/CD Integration: Jenkins
-✔ Distributed Execution: Selenium Grid 
-✔ Browser & Driver Management: WebDriverManager
-✔ Version Control: Git, GitHub
-✔ Execution Environments: Runs locally via Command Prompt and remotely via Jenkins pipelines
-
+- Automation & Testing: Selenium WebDriver, TestNG, Cucumber
+- Programming Language: Java
+- Build & Dependency Management: Maven
+- Framework Design: Page Object Model (POM), End-to-End Automation Framework
+- Data-Driven Testing: JSON
+- Logging & Reporting: Log4j, ExtentReports
+- CI/CD Integration: Jenkins
+- Distributed Execution: Selenium Grid with Docker
+- Browser & Driver Management: WebDriverManager
+- Version Control: Git, GitHub
+- Execution Environments: Runs locally via Command Prompt and remotely via Jenkins pipelines
 
 
   <img width="1902" height="906" alt="image" src="https://github.com/user-attachments/assets/352e4411-8e0b-43ba-9a1f-7fa46a974a04" />
