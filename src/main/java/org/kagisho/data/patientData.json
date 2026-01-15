@@ -1,8 +1,10 @@
 [
   {
     "username" : "John Doe",
-    "password" : "ThisIsNotAPassword"
-
+    "password" : "ThisIsNotAPassword",
+    "invalidUsername" : "kagisho prince",
+    "invalidPassword" : "password",
+    "expectedErrorMessage" : "Login failed! Please ensure the username and password are valid."
 
 
   } ,
@@ -10,7 +12,10 @@
   {
 
     "username" : "John Doe",
-    "password" : "ThisIsNotAPassword"
+    "password" : "ThisIsNotAPassword",
+    "invalidUsername" : "Karabo singh",
+    "invalidPassword" : "passowrd123",
+    "expectedErrorMessage" : "Login failed! Please ensure the username and password are valid."
 
 
 

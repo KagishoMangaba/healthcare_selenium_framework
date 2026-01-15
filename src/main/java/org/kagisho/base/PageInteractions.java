@@ -34,7 +34,7 @@ public class PageInteractions {
             LoggerUtil.info(elementName + " is clickable.");
             return el;
         } catch (StaleElementReferenceException e) {
-            LoggerUtil.warn(elementName + " became stale. Retrying...");
+            LoggerUtil.warn(elementName + " became stale.");
             return wait.until(ExpectedConditions.elementToBeClickable(element));
         } catch (TimeoutException e) {
             throw new RuntimeException(elementName + " was not clickable within timeout", e);

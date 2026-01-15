@@ -65,17 +65,7 @@ public class AppointmentCreation extends TestContent {
                 "Appointment details verification failed");
     }
 
-//    @Test(dataProvider = "getData" , dependsOnMethods = {"createAppointment"})
-//    public void AppointmentHistory(HashMap<String , String> input) {
-//
-//        LandingPage landingPage = launchApplication();
-//        LoginPage loginPage = landingPage.goToLoginPage();
-//        loginPage.enterCredentials(input.get("username") , input.get("password"));
-//        appointmentPage = loginPage.clickLoginBtn();
-//
-//        //will be adding View order history logic soon
-//        //unfortunately order history is not tracked after logging out
-//
-//    }
+
+    //wil be adding order history tet
 
 }

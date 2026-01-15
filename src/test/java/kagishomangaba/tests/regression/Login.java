@@ -24,16 +24,16 @@ public class Login extends TestContent {
 
         }
 
-    @Test
-    public void inValidCredentials() {
+    @Test(dataProvider = "getData")
+    public void inValidCredentials(HashMap<String , String> data) {
 
-        String expectedErrorMessage =
-                "Login failed! Please ensure the username and password are valid.";
+        String expectedErrorMessage = data.get("expectedErrorMessage");
+
 
         LandingPage landingPage = launchApplication();
         LoginPage loginPage = landingPage.goToLoginPage();
 
-        loginPage.enterCredentials("Kagisho_m" , "Passwekd");
+        loginPage.enterCredentials(data.get("invalidUsername") , data.get("invalidPassword"));
         loginPage.clickLoginBtn();
 
         String actualErrorMessage = loginPage.getErrorMessage();
