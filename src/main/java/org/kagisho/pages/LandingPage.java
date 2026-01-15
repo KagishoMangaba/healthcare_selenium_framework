@@ -1,12 +1,13 @@
 package org.kagisho.pages;
 
-import org.kagisho.base.AbstractComponents;
+import org.kagisho.base.PageInteractions;
+import org.kagisho.utilities.ConfigLoader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LandingPage extends AbstractComponents {
+public class LandingPage extends PageInteractions {
 
     private WebDriver driver;
 
@@ -36,7 +37,7 @@ public class LandingPage extends AbstractComponents {
 
     public LoginPage goToLoginPage() {
         openMenu.click();
-        waitForElementToBeClickable(navigateToLogin);
+        waitForElementToBeClickable(navigateToLogin , "Login button" );
         navigateToLogin.click();
         return new LoginPage(driver);
     }
@@ -45,13 +46,13 @@ public class LandingPage extends AbstractComponents {
 
     public void logOut() {
         openMenu.click();
-        waitForElementToBeClickable(logoutBtn);
+        waitForElementToBeClickable(logoutBtn , "Logout button");
         logoutBtn.click();
     }
 
     public LandingPage goToHomePage() {
         openMenu.click();
-        waitForElementToBeClickable(homebtn);
+        waitForElementToBeClickable(homebtn , "Home button");
         return new LandingPage(driver);
     }
 
@@ -62,7 +63,7 @@ public class LandingPage extends AbstractComponents {
 
 
     public void goTo() {
-        driver.get("https://katalon-demo-cura.herokuapp.com/");
+        driver.get(ConfigLoader.getProperties().getProperty("url"));
     }
 
 

@@ -1,32 +1,47 @@
 package org.kagisho.base;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.kagisho.utilities.ConfigLoader;
+import org.kagisho.utilities.LoggerUtil;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class AbstractComponents {
+public class PageInteractions {
 
 
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    public AbstractComponents(WebDriver driver) {
+    public PageInteractions(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver , this);
-        this.wait = new WebDriverWait(driver , Duration.ofSeconds(8));
+        PageFactory.initElements(driver, this);
+
+        int explicitWait = Integer.parseInt(
+                ConfigLoader.getProperties().getProperty("explicitWait")
+        );
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(explicitWait));
     }
 
 
-    public void waitForElementToBeClickable(WebElement element) {
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+
+
+    public WebElement waitForElementToBeClickable(WebElement element, String elementName) {
+        try {
+            WebElement el = wait.until(ExpectedConditions.elementToBeClickable(element));
+            LoggerUtil.info(elementName + " is clickable.");
+            return el;
+        } catch (StaleElementReferenceException e) {
+            LoggerUtil.warn(elementName + " became stale. Retrying...");
+            return wait.until(ExpectedConditions.elementToBeClickable(element));
+        } catch (TimeoutException e) {
+            throw new RuntimeException(elementName + " was not clickable within timeout", e);
+        }
     }
+
+
 
     public void waitForElementToAppear(By findBy) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));

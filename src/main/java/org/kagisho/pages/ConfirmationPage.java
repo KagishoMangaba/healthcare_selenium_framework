@@ -1,12 +1,12 @@
 package org.kagisho.pages;
 
-import org.kagisho.base.AbstractComponents;
+import org.kagisho.base.PageInteractions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ConfirmationPage extends AbstractComponents {
+public class ConfirmationPage extends PageInteractions {
     WebDriver driver;
 
     public ConfirmationPage(WebDriver driver) {

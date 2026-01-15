@@ -1,14 +1,13 @@
 package org.kagisho.pages;
 
-import org.kagisho.base.AbstractComponents;
-import org.openqa.selenium.By;
+import org.kagisho.base.PageInteractions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class AppointmentPage extends AbstractComponents {
+public class AppointmentPage extends PageInteractions {
 
     private WebDriver driver;
 
@@ -44,13 +43,13 @@ public class AppointmentPage extends AbstractComponents {
 
 
     public void selectFacility(String facilityName) {
-        waitForElementToBeClickable(facilityDropdown);
+        waitForElementToBeClickable(facilityDropdown , "facility dropdown button");
         Select select = new Select(facilityDropdown);
         select.selectByVisibleText(facilityName);
     }
 
     public void applyForHospitalReadmission() {
-        waitForElementToBeClickable(applyForHospitalReadmissionCheckbox);
+        waitForElementToBeClickable(applyForHospitalReadmissionCheckbox , "apply For Hospital Readmission Checkbox");
         if (!applyForHospitalReadmissionCheckbox.isSelected()) {
             applyForHospitalReadmissionCheckbox.click();
         }
@@ -70,23 +69,23 @@ public class AppointmentPage extends AbstractComponents {
             throw new IllegalArgumentException("Invalid healthcare program: " + program);
         }
 
-        waitForElementToBeClickable(programRadio);
+        waitForElementToBeClickable(programRadio , "program Radio");
         programRadio.click();
     }
 
     public void setVisitDate(String date) {
-        waitForElementToBeClickable(visitDateField);
+        waitForElementToBeClickable(visitDateField , "visitDate field");
         visitDateField.clear();
         visitDateField.sendKeys(date);
     }
 
     public void enterComment(String comment) {
-        waitForElementToBeClickable(commentField);
+        waitForElementToBeClickable(commentField , "comment field");
         commentField.sendKeys(comment);
     }
 
     public ConfirmationPage bookAppointment() {
-        waitForElementToBeClickable(bookAppointmentButton);
+        waitForElementToBeClickable(bookAppointmentButton , "Book Appointment button");
         bookAppointmentButton.click();
         return new ConfirmationPage(driver);
     }

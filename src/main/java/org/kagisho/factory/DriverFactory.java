@@ -20,22 +20,25 @@ public final class DriverFactory {
         if (browser == null) {
             browser = "chrome";
         }
-
         if (browser.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
         }
         else {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+            throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
 
+
         driverThreadLocal.set(driver);
+
     }
+
+
 
     public static WebDriver getDriver() {
         return driverThreadLocal.get();
     }
+
 
     public static void quitDriver() {
         WebDriver driver = driverThreadLocal.get();

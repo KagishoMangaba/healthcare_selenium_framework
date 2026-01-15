@@ -7,22 +7,25 @@ import org.kagisho.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
+
 public class Login extends TestContent {
 
         private LandingPage landingPage;
 
-        @Test
-        public void userCanLogin() {
+        @Test(dataProvider = "getData")
+        public void userCanLogin(HashMap<String , String> data) {
 
             LandingPage landingpage = launchApplication();
             LoginPage loginPage = landingpage.goToLoginPage();
-            loginPage.enterCredentials("John Doe" , "ThisIsNotAPassword");
+            loginPage.enterCredentials(data.get("username") , data.get("password"));
             loginPage.clickLoginBtn();
+
 
         }
 
     @Test
-    public void shouldDisplayErrorMessageForInvalidCredentials() {
+    public void inValidCredentials() {
 
         String expectedErrorMessage =
                 "Login failed! Please ensure the username and password are valid.";
@@ -34,9 +37,9 @@ public class Login extends TestContent {
         loginPage.clickLoginBtn();
 
         String actualErrorMessage = loginPage.getErrorMessage();
-
         Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
     }
+
 
 }
 
