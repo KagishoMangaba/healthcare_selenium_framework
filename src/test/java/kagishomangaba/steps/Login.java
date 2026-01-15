@@ -4,12 +4,12 @@ import io.cucumber.java.en.Given;
 import kagishomangaba.TestComponents.TestContent;
 import org.kagisho.factory.DriverFactory;
 import org.kagisho.pages.LandingPage;
+import org.kagisho.pages.LoginPage;
 
-public class Login extends TestContent{
+public class Login extends TestContent {
 
 
     private LandingPage landingPage;
-
 
 
     @Given("the user has landed on the landing page")
@@ -22,6 +22,9 @@ public class Login extends TestContent{
     }
 
 
+    @Given("the user logs in with username {string} and password {string}")
+    public void i_enter_the_valid_credentials(String username, String password) {
 
 
+    }
 }

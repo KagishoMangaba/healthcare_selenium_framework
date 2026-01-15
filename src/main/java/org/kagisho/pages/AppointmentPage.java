@@ -9,11 +9,9 @@ import org.openqa.selenium.support.ui.Select;
 
 public class AppointmentPage extends PageInteractions {
 
-    private WebDriver driver;
 
     public AppointmentPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 

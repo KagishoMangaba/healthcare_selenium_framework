@@ -9,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LandingPage extends PageInteractions {
 
-    private WebDriver driver;
 
     @FindBy(id = "btn-make-appointment")
     WebElement makeAppointmentBtn;
@@ -31,7 +30,6 @@ public class LandingPage extends PageInteractions {
 
     public LandingPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 

@@ -15,6 +15,7 @@ public class PageInteractions {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
+
     public PageInteractions(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
