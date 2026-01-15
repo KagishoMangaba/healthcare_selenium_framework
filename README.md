@@ -46,7 +46,9 @@ Here are example flows automation frameworks often implement:
 - Version Control: Git, GitHub
 
 
-    Extent Report with Attached Screenshot for all tests that failed with the support of TESTNG Listeners
 
   <img width="1902" height="906" alt="image" src="https://github.com/user-attachments/assets/352e4411-8e0b-43ba-9a1f-7fa46a974a04" />
+
+  <img width="1902" height="951" alt="image" src="https://github.com/user-attachments/assets/b307d644-f92b-4f06-969f-2f54a6be7a79" />
+
 
