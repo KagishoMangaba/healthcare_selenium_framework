@@ -30,17 +30,9 @@ public class PageInteractions {
 
 
     public WebElement waitForElementToBeClickable(WebElement element, String elementName) {
-        try {
-            WebElement el = wait.until(ExpectedConditions.elementToBeClickable(element));
-            LoggerUtil.info(elementName + " is clickable.");
-            return el;
-        } catch (StaleElementReferenceException e) {
-            LoggerUtil.warn(elementName + " became stale.");
-            return wait.until(ExpectedConditions.elementToBeClickable(element));
-        } catch (TimeoutException e) {
-            throw new RuntimeException(elementName + " was not clickable within timeout", e);
-        }
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
 
 
 

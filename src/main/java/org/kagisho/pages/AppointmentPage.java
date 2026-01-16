@@ -1,5 +1,6 @@
 package org.kagisho.pages;
 
+import org.kagisho.base.InputUtil;
 import org.kagisho.base.PageInteractions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,11 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class AppointmentPage extends PageInteractions {
+    private InputUtil inputUtil;
 
 
     public AppointmentPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
+        this.inputUtil = new InputUtil(super.driver);
     }
 
     @FindBy(id = "combo_facility")
@@ -73,13 +75,14 @@ public class AppointmentPage extends PageInteractions {
 
     public void setVisitDate(String date) {
         waitForElementToBeClickable(visitDateField , "visitDate field");
-        visitDateField.clear();
-        visitDateField.sendKeys(date);
+        inputUtil.writeText(visitDateField , date);
+
+
     }
 
     public void enterComment(String comment) {
         waitForElementToBeClickable(commentField , "comment field");
-        commentField.sendKeys(comment);
+        inputUtil.writeText(commentField , comment);
     }
 
     public ConfirmationPage bookAppointment() {

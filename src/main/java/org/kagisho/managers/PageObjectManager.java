@@ -20,30 +20,18 @@ public class PageObjectManager {
     }
 
     public LandingPage getLandingPage() {
-        if (landingPage == null) {
-            landingPage = new LandingPage(driver);
-        }
-        return landingPage;
+        return landingPage = (landingPage == null) ? new LandingPage(driver) : landingPage;
     }
 
     public LoginPage getLoginPage() {
-        if (loginPage == null) {
-            loginPage = new LoginPage(driver);
-        }
-        return loginPage;
+        return loginPage = (loginPage == null) ? new LoginPage(driver) : loginPage;
     }
 
     public AppointmentPage getAppointmentPage() {
-        if (appointmentPage == null) {
-            appointmentPage = new AppointmentPage(driver);
-        }
-        return appointmentPage;
+        return appointmentPage = (appointmentPage == null) ? new AppointmentPage(driver) : appointmentPage;
     }
 
     public ConfirmationPage getConfirmationPage() {
-        if (confirmationPage == null) {
-            confirmationPage = new ConfirmationPage(driver);
-        }
-        return confirmationPage;
+        return confirmationPage = (confirmationPage == null) ? new ConfirmationPage(driver) : confirmationPage;
     }
 }
