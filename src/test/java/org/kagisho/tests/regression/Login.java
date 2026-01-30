@@ -1,7 +1,6 @@
-package kagishomangaba.tests.regression;
+package org.kagisho.tests.regression;
 
-import kagishomangaba.TestComponents.BaseTest;
-import kagishomangaba.TestComponents.TestContent;
+import org.kagisho.base.TestContent;
 import org.kagisho.pages.LandingPage;
 import org.kagisho.pages.LoginPage;
 import org.testng.Assert;

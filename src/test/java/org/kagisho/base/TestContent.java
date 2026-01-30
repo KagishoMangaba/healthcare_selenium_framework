@@ -1,4 +1,4 @@
-package kagishomangaba.TestComponents;
+package org.kagisho.base;
 
 import org.kagisho.pages.LandingPage;
 

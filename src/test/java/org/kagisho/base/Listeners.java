@@ -1,4 +1,4 @@
-package kagishomangaba.TestComponents;
+package org.kagisho.base;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -9,8 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
-import java.io.IOException;
 
 
 public class Listeners implements ITestListener {

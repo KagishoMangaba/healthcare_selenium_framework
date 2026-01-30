@@ -2,7 +2,7 @@
 
 
     <listeners>
-        <listener class-name="kagishomangaba.TestComponents.Listeners"/>
+        <listener class-name="TestComponents.org.kagisho.Listeners"/>
     </listeners>
 
 

@@ -1,4 +1,4 @@
-package kagishomangaba.TestComponents;
+package org.kagisho.base;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

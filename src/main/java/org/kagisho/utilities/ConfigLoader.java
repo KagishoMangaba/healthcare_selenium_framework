@@ -1,8 +1,7 @@
 package org.kagisho.utilities;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Paths;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigLoader {
@@ -18,20 +17,16 @@ public class ConfigLoader {
         return properties;
     }
 
-
-
     private static void loadProperties() {
-        try {
-            String path = Paths.get(
-                    System.getProperty("user.dir"),
-                    "src", "main", "java",
-                    "org", "kagisho", "resources",
-                    "Globaldata.properties"
-            ).toString();
+        try (InputStream input = ConfigLoader.class.getClassLoader()
+                .getResourceAsStream("config/config.properties")) {
+
+            if (input == null) {
+                throw new RuntimeException("Unable to find config.properties in resources!");
+            }
 
             properties = new Properties();
-            FileInputStream fis = new FileInputStream(path);
-            properties.load(fis);
+            properties.load(input);
 
         } catch (IOException e) {
             throw new RuntimeException("Failed to load config file", e);

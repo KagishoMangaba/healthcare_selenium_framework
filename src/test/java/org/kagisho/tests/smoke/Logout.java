@@ -1,7 +1,6 @@
-package kagishomangaba.tests.smoke;
+package org.kagisho.tests.smoke;
 
-import io.cucumber.java.hu.Ha;
-import kagishomangaba.TestComponents.TestContent;
+import org.kagisho.base.TestContent;
 import org.kagisho.pages.LandingPage;
 import org.kagisho.pages.LoginPage;
 import org.testng.annotations.Test;

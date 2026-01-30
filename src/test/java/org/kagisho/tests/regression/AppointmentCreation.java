@@ -1,20 +1,15 @@
-package kagishomangaba.tests.regression;
+package org.kagisho.tests.regression;
 
-import kagishomangaba.TestComponents.Retry;
-import kagishomangaba.TestComponents.TestContent;
+import org.kagisho.base.Retry;
+import org.kagisho.base.TestContent;
 import org.kagisho.pages.AppointmentPage;
 import org.kagisho.pages.ConfirmationPage;
 import org.kagisho.pages.LandingPage;
 import org.kagisho.pages.LoginPage;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
-
-import static org.kagisho.utilities.JsonDataReader.getJsonDataToMap;
 
 public class AppointmentCreation extends TestContent {
 
